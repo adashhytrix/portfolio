@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelancer Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; }
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px;
+    }
+    .hero h1 { font-size: 3rem; font-weight: 700; }
+    .hero p { font-size: 1.25rem; margin-bottom: 20px; }
+    .section-title {
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      color: #0d6efd;
+    }
+    .card { transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    footer { background: #212529; color: white; padding: 20px 0; }
+    .btn-custom { background: #ffc107; color: black; font-weight: 600; }
+    .text-purple { color: #7952b3; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Hello, I’m <span class="text-warning">Adarsh Pal</span></h1>
+      <p>Freelance Full-Stack Developer | Laravel & Node.js Expert</p>
+      <a href="#contact" class="btn btn-custom btn-lg">Hire Me</a>
+      <a href="https://education.ucsb.edu/sites/default/files/documents/fake-pdf.pdf" target="_blank" class="btn btn-light btn-lg ms-2">Download CV</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container text-center my-5">
+      <h2 class="section-title">About Me</h2>
+      <p class="lead">I am a dedicated freelancer with experience in developing scalable, responsive, and secure web applications. My goal is to help businesses and individuals build powerful digital solutions.</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-5 bg-light">
+    <div class="container my-5">
+      <h2 class="section-title text-center">Skills</h2>
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-code-slash fs-1 text-primary mb-3"></i>
+            <h5>PHP</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-lightning-charge-fill fs-1 text-warning mb-3"></i>
+            <h5>React</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-layers-fill fs-1 text-danger mb-3"></i>
+            <h5>Laravel</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-server fs-1 text-success mb-3"></i>
+            <h5>Node.js</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-database-fill fs-1 text-info mb-3"></i>
+            <h5>MongoDB</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-database fs-1 text-secondary mb-3"></i>
+            <h5>MySQL</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-git fs-1 text-danger mb-3"></i>
+            <h5>Git & GitHub</h5>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="card shadow-sm h-100 text-center p-4 border-0">
+            <i class="bi bi-bootstrap-fill fs-1 text-purple mb-3"></i>
+            <h5>Bootstrap</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-5">
+    <div class="container my-5">
+      <h2 class="section-title text-center">Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card p-4 text-center h-100">
+            <i class="bi bi-laptop fs-1 text-primary mb-3"></i>
+            <h5>Web Development</h5>
+            <p>Custom responsive websites using modern technologies tailored to your business needs.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 text-center h-100">
+            <i class="bi bi-diagram-3 fs-1 text-success mb-3"></i>
+            <h5>API & Backend</h5>
+            <p>Scalable APIs and secure backends built with Laravel, Node.js, and MySQL/MongoDB.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 text-center h-100">
+            <i class="bi bi-briefcase-fill fs-1 text-warning mb-3"></i>
+            <h5>Freelance Projects</h5>
+            <p>On-time project delivery with clean code and client-focused approach.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="py-5 bg-light">
+    <div class="container my-5">
+      <h2 class="section-title text-center">Portfolio</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://www.psychologs.com/wp-content/uploads/2023/11/Journey-of-Human-Development-Domains-and-Stages-of-Development.jpg" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Project Title One</h5>
+              <p class="card-text">E-commerce platform built with Laravel for scalable online sales.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://www.psychologs.com/wp-content/uploads/2023/11/Journey-of-Human-Development-Domains-and-Stages-of-Development.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Project Title Two</h5>
+              <p class="card-text">Booking application with Node.js API and real-time features.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://www.psychologs.com/wp-content/uploads/2023/11/Journey-of-Human-Development-Domains-and-Stages-of-Development.jpg" class="card-img-top" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title">Project Title Three</h5>
+              <p class="card-text">Responsive portfolio website showcasing modern web design.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="section-title mb-4">Contact Me</h2>
+      <p class="lead mb-5">Let’s connect! You can reach me easily via the following:</p>
+
+      <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm p-4 border-0 h-100">
+            <i class="bi bi-envelope-fill fs-1 text-primary mb-3"></i>
+            <h5>Email</h5>
+            <p><a href="mailto:adarshpalcsjm1@gmail.com" class="text-decoration-none">adarshpalcsjm1@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm p-4 border-0 h-100">
+            <i class="bi bi-telephone-fill fs-1 text-success mb-3"></i>
+            <h5>Phone</h5>
+            <p><a href="tel:+918587957397" class="text-decoration-none">+91 8587957397</a></p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm p-4 border-0 h-100">
+            <i class="bi bi-linkedin fs-1 text-info mb-3"></i>
+            <h5>LinkedIn</h5>
+            <p><a href="https://www.linkedin.com/in/adarsh-pal-254391123/" target="_blank" class="text-decoration-none">View My Profile</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <p class="mb-0">&copy; 2025 Adarsh Pal | Freelance Web Developer</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
