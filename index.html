@@ -462,20 +462,23 @@
     function animateCounter(element) {
       const target = parseInt(element.getAttribute('data-target'));
       const duration = 2000; // 2 seconds
-      const increment = target / (duration / 16); // 60fps
-      let current = 0;
+      const startTime = performance.now();
 
-      const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-          element.textContent = Math.floor(current);
+      const updateCounter = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = Math.floor(progress * target);
+
+        element.textContent = current;
+
+        if (progress < 1) {
           requestAnimationFrame(updateCounter);
         } else {
           element.textContent = target;
         }
       };
 
-      updateCounter();
+      requestAnimationFrame(updateCounter);
     }
 
     // Intersection Observer for counter animation
@@ -507,7 +510,7 @@
     const backToTopBtn = document.getElementById('backToTop');
     
     window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
+      if (window.scrollY > 300) {
         backToTopBtn.classList.add('show');
       } else {
         backToTopBtn.classList.remove('show');
