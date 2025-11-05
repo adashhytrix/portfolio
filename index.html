@@ -129,6 +129,61 @@
             left: 0.5rem;
         }
     }
+
+    /* Smooth Scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Back to Top Button */
+    #backToTop {
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        bottom: 1.5rem;
+        left: 1rem;
+        z-index: 9999;
+        background: #0d6efd;
+        color: white;
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        border: none;
+        opacity: 0;
+    }
+
+    #backToTop.show {
+        display: flex;
+        opacity: 1;
+    }
+
+    #backToTop:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+        background: #0b5ed7;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #backToTop {
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            bottom: 5rem;
+            left: 0.5rem;
+        }
+    }
+
+    /* Statistics Counter Animation */
+    .counter {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ffc107;
+    }
   </style>
 </head>
 <body>
@@ -171,6 +226,34 @@
     <div class="container text-center my-5">
       <h2 class="section-title">About Me</h2>
       <p class="lead">I am a dedicated freelancer with experience in developing scalable, responsive, and secure web applications. My goal is to help businesses and individuals build powerful digital solutions.</p>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section id="statistics" class="py-5 bg-dark text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3 col-6 mb-4">
+          <i class="bi bi-check-circle-fill fs-1 text-success mb-3"></i>
+          <h2 class="counter" data-target="50">0</h2>
+          <p class="text-muted">Projects Completed</p>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <i class="bi bi-people-fill fs-1 text-warning mb-3"></i>
+          <h2 class="counter" data-target="30">0</h2>
+          <p class="text-muted">Happy Clients</p>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <i class="bi bi-cup-hot-fill fs-1 text-info mb-3"></i>
+          <h2 class="counter" data-target="1000">0</h2>
+          <p class="text-muted">Cups of Coffee</p>
+        </div>
+        <div class="col-md-3 col-6 mb-4">
+          <i class="bi bi-award-fill fs-1 text-danger mb-3"></i>
+          <h2 class="counter" data-target="5">0</h2>
+          <p class="text-muted">Years Experience</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -356,6 +439,12 @@
   <footer class="text-center">
     <p class="mb-0">&copy; 2025 Adarsh Pal | Freelance Web Developer</p>
   </footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
 <!-- WhatsApp Button -->
 <a href="https://wa.me/918587957397?text=Hello%20Adarsh,%20I%20visited%20your%20portfolio%20website%20and%20would%20like%20to%20discuss%20a%20project." 
    target="_blank" 
@@ -366,5 +455,71 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Animated Counter
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          element.textContent = target;
+        }
+      };
+
+      updateCounter();
+    }
+
+    // Intersection Observer for counter animation
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.counter');
+          counters.forEach(counter => {
+            if (counter.textContent === '0') {
+              animateCounter(counter);
+            }
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const statsSection = document.getElementById('statistics');
+    if (statsSection) {
+      observer.observe(statsSection);
+    }
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>
